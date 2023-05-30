@@ -1,27 +1,19 @@
-import React, { useState, useEffect } from "react";
-import { StyleSheet, ScrollView, SafeAreaView } from "react-native";
-import Axios2 from "https://cdn.jsdelivr.net/npm/axios@1.3.4/+esm";
-const URL = "https://jsonplaceholder.typicode.com/todos";
+import React, { useState } from "react";
+import { StyleSheet, ScrollView, SafeAreaView, Text } from "react-native";
+import { isEqual } from "lodash";
 
 const Untitled1 = () => {
-  const [data, setData] = useState(null);
-  const [error, setError] = useState(null);
-  useEffect(() => {
-    if (!data) {
-      Axios2.get(URL).then(result => {
-        setData(result.data.map(r => r.title));
-      }).catch(err => {
-        setError(err);
-      });
-    }
-  }, []);
+  const [ie, setIe] = useState(0);
+  if (isEqual(1, 1)) setIe(11);
   return <SafeAreaView style={styles.safeArea}>
       <ScrollView contentContainerStyle={{
       backgroundColor: "#f0f0f1",
       padding: 10,
       position: "relative",
       flex: 1
-    }}></ScrollView>
+    }}>
+        <Text>{ie}</Text>
+      </ScrollView>
     </SafeAreaView>;
 };
 
